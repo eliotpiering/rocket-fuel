@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :enrollments
   has_many :courses, through: :enrollments
+
+  has_many :user_requirements
+  has_many :skills, through: :user_requirements
+
+  has_many :user_tracks
+  has_many :tracks, through: :user_tracks
 end

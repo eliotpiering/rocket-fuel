@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140803220420) do
+ActiveRecord::Schema.define(version: 20140808013650) do
+
+  create_table "course_requirements", force: true do |t|
+    t.integer "skill_id"
+    t.integer "course_id"
+  end
+
+  create_table "course_tracks", force: true do |t|
+    t.integer "course_id"
+    t.integer "track_id"
+  end
 
   create_table "courses", force: true do |t|
     t.text     "name"
@@ -25,6 +35,35 @@ ActiveRecord::Schema.define(version: 20140803220420) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "skills", force: true do |t|
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "track_requirements", force: true do |t|
+    t.integer "skill_id"
+    t.integer "track_id"
+  end
+
+  create_table "tracks", force: true do |t|
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_requirements", force: true do |t|
+    t.integer "skill_id"
+    t.integer "user_id"
+  end
+
+  create_table "user_tracks", force: true do |t|
+    t.integer "user_id"
+    t.integer "track_id"
   end
 
   create_table "users", force: true do |t|
